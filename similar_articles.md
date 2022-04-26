@@ -20,31 +20,19 @@ For updates the whole manual process must be started again.
 
 ## Use OpenRefine
 
-Some notes to myself (TODO: Clean up):
-
-How to [join cells in a column](https://onlinejournalismblog.com/2014/05/30/how-to-combine-multiple-rows-in-a-dataset-where-text-is-split-across-them-open-refine/)
-
-```
-
-"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?tool=OpenRefine&dbfrom=pubmed&db=pubmed&linkname=pubmed_pubmed&cmd=neighbor_history&WebEnv=" + 
-value.parseXml().select("WebEnv")[0].xmlText().toString() + 
-"&query_key=" +
-value.parseXml().select("QueryKey")[0].xmlText().toString()
-
-"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?tool=OpenRefine&db=pubmed&retmode=text&rettype=medline&retmax=10000&WebEnv=" + 
-value.parseXml().select("WebEnv")[0].xmlText().toString() + 
-"&query_key=" +
-value.parseXml().select("QueryKey")[0].xmlText().toString()
-
-```
 
 1. Start with a text file with the PMIDs of the source articles. Every PMID on its own line. PubMed will create such a file when downloading a set of records in PMID format. A sample file is [here](data/PMID4similar_articles.txt).
 2. In OpenRefine: `Create Project` > `Get data from This Computer`. Browse to the file with the source PMIDs. Click `Next >>`.
 3. Use these settings, then click `Create Project >>`:
 
-![media/PMID-import-settings.png]
+![import settings](media/PMID-import-settings.png)
 
 4. Go to the `Undo / Redo` tab, click `Apply` and paste the code below. Click `Perform Operations`.
+
+
+Some notes to myself:
+
+How to [join cells in a column](https://onlinejournalismblog.com/2014/05/30/how-to-combine-multiple-rows-in-a-dataset-where-text-is-split-across-them-open-refine/)
 
 
 ### OpenRefine code
