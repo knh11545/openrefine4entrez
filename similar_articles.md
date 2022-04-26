@@ -28,11 +28,9 @@ For updates the whole manual process must be started again.
 ![import settings](media/PMID-import-settings.png)
 
 4. Go to the `Undo / Redo` tab, click `Apply` and paste the code below. Click `Perform Operations`.
+5. Export the similar articles and/or their PMIDs as described below.
 
-
-Some notes to myself:
-
-How to [join cells in a column](https://onlinejournalismblog.com/2014/05/30/how-to-combine-multiple-rows-in-a-dataset-where-text-is-split-across-them-open-refine/)
+Note: How to [join cells in a column](https://onlinejournalismblog.com/2014/05/30/how-to-combine-multiple-rows-in-a-dataset-where-text-is-split-across-them-open-refine/)
 
 
 ### OpenRefine code
@@ -203,7 +201,6 @@ Known bugs:
 ```
 
 
-
 ### Download result in PubMed/nbib-format
 
 `Export` > `Custom Tabular Exporter` > `Option Code`:
@@ -285,5 +282,5 @@ Remove superfluous quotes:
 sed -e 's/"//g' data/similar-articles-pmid.tsv > data/similar-articles-pmid.txt
 ```
 
-We now have a text file with the PMIDs of all similar articles: [data/similar-articles-pmid.t](data/similar-articles-pmid.txt)
+We now have a text file with the PMIDs of all similar articles: [data/similar-articles-pmid.txt](data/similar-articles-pmid.txt)
 
