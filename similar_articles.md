@@ -1,7 +1,7 @@
-Fetch similar articles
+Fetch similar articles from PubMed
 ==============================================================================
 
-Fetch the *similar articles* for a number of PubMed records.
+Fetch the *similar articles* for a set of PubMed records.
 
 The new (as of 2020) PubMed only allows to retrieve the similar articles for a single record. If the similar articles for a number of articles is needed collecting them becomes a tedious process:
 
@@ -20,6 +20,7 @@ For updates the whole manual process must be started again.
 
 ## Use OpenRefine
 
+With OpenRefine it is possible to fetch the similar articles for a set of PubMed records. Only a list of the PMIDs must be provided.
 
 1. Start with a text file with the PMIDs of the source articles. Every PMID on its own line. PubMed will create such a file when downloading a set of records in PMID format. A sample file is [here](data/PMID4similar_articles.txt).
 2. In OpenRefine: `Create Project` > `Get data from This Computer`. Browse to the file with the source PMIDs. Click `Next >>`.
