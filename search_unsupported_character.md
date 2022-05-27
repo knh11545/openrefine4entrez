@@ -122,3 +122,73 @@ This PubMed-/nbib-file is nicely imported by Endnote.
 
 As an alternative, it is possible to just export the PMIDs. Use the custom tabular exporter...
 
+### Code for OpenRefine
+
+This can be pasted and applied in the `Undo / Redo` tab:
+
+```json
+
+[
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 1",
+    "newColumnName": "record_text",
+    "description": "Rename column Column 1 to record_text"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "record_text",
+    "expression": "grel:value.match(/^PMID- (\\d+)$/)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "PMID",
+    "columnInsertIndex": 1,
+    "description": "Create column PMID at index 1 based on column record_text using expression grel:value.match(/^PMID- (\\d+)$/)[0]"
+  },
+  {
+    "op": "core/column-move",
+    "columnName": "PMID",
+    "index": 0,
+    "description": "Move column PMID to position 0"
+  },
+  {
+    "op": "core/multivalued-cell-join",
+    "columnName": "record_text",
+    "keyColumnName": "PMID",
+    "separator": "\\n",
+    "description": "Join multi-valued cells in column record_text"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "record_text",
+    "expression": "grel:value.replace(/\\\\n/,\"\\n\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column record_text using expression grel:value.replace(/\\\\n/,\"\\n\")"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "record_text",
+    "expression": "grel:forEach(\n  value.find(/CD21[(]*-\\S*/i).uniques(),\n  v,\n  v\n).join(\"\\n\")",
+    "onError": "set-to-blank",
+    "newColumnName": "CD21-words",
+    "columnInsertIndex": 2,
+    "description": "Create column CD21-words at index 2 based on column record_text using expression grel:forEach(\n  value.find(/CD21[(]*-\\S*/i).uniques(),\n  v,\n  v\n).join(\"\\n\")"
+  }
+]
+
+```
+
+
