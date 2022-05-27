@@ -19,7 +19,7 @@ Remark: This is a partial adaptation of the [same approach using command line to
 
 We have now a single column called "Column 1" with 221077 rows in the project. Every row contains a single line of the original text file. First, we will rename th column to a more useful name, e.g. `record_text`:
 
-![rename column](rename_column.png)
+![rename column](media/rename_column.png)
 
 But we don't want just many individual lines. We want to have the PubMed records as records in OpenRefine, too. We need to do this stepwise.  Every record starts with a line that begins with `PMID- ` and contains the PMID of the record. We extract the PMID into a new column: 
 
@@ -36,7 +36,7 @@ value.match(/^PMID- (\d+)$/)[0]
 
 Now, all rows containing the PMID of a record will contain the PMID in the `PMID` column. All other rows in the `PMID` column are blank.
 
-* We need to move the PMID column to the beginning so that OpenRefine will accept it to order our data:
+We need to move the PMID column to the beginning so that OpenRefine will accept it to order our data:
 
 ![Move column to beginning](media/move-column-to-beginning.png)
 
@@ -44,11 +44,11 @@ Our first column is now the PMID column. Make sure you show data as rows for the
 
 ![PMID column first, show as rows](media/PMID_first_column.png)
 
-* Join the lines belonging to a record. We use "\n" as a separator between the original lines:
+Join the lines belonging to a record. We use "\n" as a separator between the original lines:
 
 ![Join multi-valued cells](media/join-multi-valued-cells.png)
 
-* "\n" ususally is interpreted as a newline character. But it is interpreted literally in this case. So we replace it with a newline character with the replace function:
+"\n" ususally is interpreted as a newline character. But it is interpreted literally in this case. So we replace it with a newline character with the replace function:
 
 ```grel
 value.replace(/\\n/,"\n")
