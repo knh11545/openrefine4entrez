@@ -1,7 +1,7 @@
 Search for stopwords and special characters
 ==============================================================================
 
-Same things cannot be searched for in PubMed itself such as [stopwords](https://pubmed.ncbi.nlm.nih.gov/help/#help-stopwords) and [certain characters](https://pubmed.ncbi.nlm.nih.gov/help/#character-conversions) that either have a special meaning in searches or are converted to spaces during indexing and searching.
+Some things cannot be searched for in PubMed itself such as [stopwords](https://pubmed.ncbi.nlm.nih.gov/help/#help-stopwords) and [certain characters](https://pubmed.ncbi.nlm.nih.gov/help/#character-conversions) that either have a special meaning in searches or are converted to spaces during indexing and searching.
 
 Sometimes, it may be possible to circumvent this problem by downloading a larger set of records that can then be searched/filtered for relevant records locally.
 
