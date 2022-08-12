@@ -104,6 +104,9 @@ We _include_ the "blank" choice and the one that only contains "CD21-positive" (
 
 ![CD21-words matching rows selected](media/CD21-words-facet-matching-rows.png)
 
+
+### Exporting the results
+
 We can now export the matching PubMed records to a text file. For this use `Export > Templating...` in the upper right corner.
 
 The _Row Template_ should contain: 
