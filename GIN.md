@@ -9,7 +9,7 @@ Starting with a list of search terms we search GIN library using OpenRefine. An 
 
 ## Search terms
 
-A example of a list of search terms, each term on its own line:
+An example of a list of search terms, each term on its own line:
 
 ```
 
