@@ -97,6 +97,8 @@ Use the Custom Tabular Exporter to export to a tsv-file:
 ![Export options: Content](media/GIN/export_search_history_01.png)
 ![Export options: Download](media/GIN/export_search_history_02.png)
 
+Here is our [search history](data/GIN/GIN-Library_search-history.tsv).
+
 
 ## Extract record data
 

@@ -99,6 +99,8 @@ Use the Custom Tabular Exporter to export to a tsv-file:
 ![Export options: Content](media/AWMF/export_search_history_01.png)
 ![Export options: Download](media/AWMF/export_search_history_02.png)
 
+Here is our [search history](data/AWMF/AWMF_Guideline_Register_search-history.tsv).
+
 
 ## Extract record data
 
