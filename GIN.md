@@ -313,11 +313,16 @@ Now we can export the deduplicated guideline records.
 
 ### Export data to a RIS file using the Templating Export
 
-Empty Prefix & Suffix. Make sure to have an empty line in the Row Separator so that the records are separated.
+In the form:
 
-Row Remplate:
+* Prefix: empty.
+* Suffix: empty.
+* Row Separator: Make sure to have an empty line in the so that the records are separated.
+* Row Remplate:
 
-```bash 
+For RIS file format see [Wikipedia](https://en.wikipedia.org/wiki/RIS_(file_format))
+
+```
 
 TY  - WEB
 TI  - {{cells["guideline_title"].value}}
