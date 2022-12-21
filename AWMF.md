@@ -221,7 +221,7 @@ We extract some minimal data about the guidelines to be exported into a RIS file
 
 ```
 
-In the following steps we will deduplicate records and therefore delete some data. If a complete record of the data returned from searching the guideline register is wanted then now would be a good time to save an [archive file of the OpenRefine project at the current state of the workflow](data/AWMF/Search_AWMF_Guideline_Register_before deduplication.openrefine.tar.gz). This file can be imported into OpenRefine for further reference.
+In the following steps we will deduplicate records and therefore delete some data. If a complete record of the data returned from searching the guideline register is wanted then now would be a good time to save an [archive file of the OpenRefine project at the current state of the workflow](data/AWMF/Search_AWMF_Guideline_Register_before_deduplication.openrefine.tar.gz). This file can be imported into OpenRefine for further reference.
 
 Export the project archive:
 
