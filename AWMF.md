@@ -26,9 +26,11 @@ Start a new project in OpenRefine. Paste the search terms from the clipboard or 
 
 The website is using an API that is requested by Ajax calls. We use that API to get nicely formatted JSON. URL pattern: <https://awmf-leitlinien.dev.howto.health/api/dev/search?sorting=relevance&limit=20&offset=0&api_key=MkI5Y1VIOEJ0ZGpoelNBVXRNM1E6WVFld0pBUF9RLVdJa012UHVPTmRQUQ==&lang=de?keywords=search_term>
 
+Foreach of the following code blocks: In the left pane got to the _Undo / Redo_ tab, click the button _Apply..._, paste the code and click on _Perform operations_.
+
 OpenRefine code to carry out the searches:
 
-Beware: We just fetch the first 50 records for each search (`limit` parameter in the query URL). You may need to adjust this value if result counts (see below) are higher than the limit.
+**Beware**: We just fetch the first **50 records** for each search (`limit` parameter in the query URL). You may need to adjust this value if result counts (see below) are higher than the limit.
 
 ```json
 
@@ -253,6 +255,8 @@ We are still in records mode with each search term being a record. Now we distil
 ```
 
 
+### Deduplication
+
 Then we deduplicate the guidelines along [this guide](https://guides.library.illinois.edu/openrefine/duplicates). We use the `AWMFGuidelineID` column to deduplicate.
 
 
@@ -324,11 +328,17 @@ Then we deduplicate the guidelines along [this guide](https://guides.library.ill
 ```
 
 
+### Number of records found
+
+The total number of records found after deduplication within AWMF by AWMF guideline ID is the number of rows displayed by OpenRefine at this stage above the table. 
+
+
 ## Export of guideline data
 
 We are finished altering the data in the OpenRefine project. So we export an [archival copy of the project](data/AWMF/Search_AWMF_Guideline_Register_after_deduplication.openrefine.tar.gz) as described above.
 
 Now we can export the deduplicated guideline records.
+
 
 ### Export data to a RIS file using the Templating Export
 

@@ -25,6 +25,8 @@ Start a new project in OpenRefine. Paste the search terms from the clipboard or 
 
 ## Search GIN library
 
+Foreach of the following code blocks: In the left pane got to the _Undo / Redo_ tab, click the button _Apply..._, paste the code and click on _Perform operations_.
+
 OpenRefine code to carry out the searches:
 
 
@@ -186,6 +188,13 @@ Split multi-valued cells:
 
 ```
 
+In the following steps we will deduplicate records and therefore delete some data. If a complete record of the data returned from searching the guideline register is wanted then now would be a good time to save an [archive file of the OpenRefine project at the current state of the workflow](data/GIN/Search_GIN-Library_before_deduplication.openrefine.tar.gz). This file can be imported into OpenRefine for further reference.
+
+Export the project archive:
+
+![Export dialogue](media/AWMF/export_project_archive.png)
+
+
 We are still in records mode with each search term being a record. Now we distill the data down to individual guidelines. This way we go from records mode to row mode.
 
 ```json
@@ -210,6 +219,8 @@ We are still in records mode with each search term being a record. Now we distil
 
 ```
 
+
+### Deduplication
 
 Then we deduplicate the guidelines along [this guide](https://guides.library.illinois.edu/openrefine/duplicates). We use the guideline_url column to deduplicate.
 
@@ -309,7 +320,15 @@ Then we deduplicate the guidelines along [this guide](https://guides.library.ill
 
 ```
 
+
+### Number of records found
+
+The total number of records found after deduplication within AWMF by AWMF guideline ID is the number of rows displayed by OpenRefine at this stage above the table. 
+
+
 ## Export of guideline data
+
+We are finished altering the data in the OpenRefine project. So we export an [archival copy of the project](data/GIN/Search_GIN-Library_after_deduplication.openrefine.tar.gz) as described above.
 
 Now we can export the deduplicated guideline records.
 
