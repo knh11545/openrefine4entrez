@@ -66,7 +66,7 @@ OpenRefine code to carry out the searches:
 
 ```
 
-Extract the result count for each search:
+Extract the result count for each search, explicitly set a zero for empty search results:
 
 
 ```json
@@ -84,6 +84,19 @@ Extract the result count for each search:
     "newColumnName": "result_count",
     "columnInsertIndex": 2,
     "description": "Create column result_count at index 2 based on column search_result_page using expression grel:value.parseHtml().select(\"div.large-9.main.columns p\")[0].htmlText().toString().replace(\" Result(s) Found\", \"\").toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "result_count",
+    "expression": "grel:if(value==null, 0, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column result_count using expression grel:if(value==null, 0, value)"
   }
 ]
 
@@ -94,10 +107,54 @@ Extract the result count for each search:
 
 At this stage it is convenient to export a search history from OpenRefine, e.g. search terms and their record counts. 
 
-Use the Custom Tabular Exporter to export to a tsv-file:
+Use the _Custom Tabular Exporter_ to export to a tsv-file:
 
 ![Export options: Content](media/GIN/export_search_history_01.png)
 ![Export options: Download](media/GIN/export_search_history_02.png)
+
+This is the code than can be applied in the _Option Code_ tab of the export dialogue:
+
+```json
+
+{
+  "format": "tsv",
+  "separator": "\t",
+  "lineSeparator": "\n",
+  "encoding": "UTF-8",
+  "quoteAll": true,
+  "outputColumnHeaders": true,
+  "outputBlankRows": false,
+  "columns": [
+    {
+      "name": "search_term",
+      "reconSettings": {
+        "output": "entity-name",
+        "blankUnmatchedCells": false,
+        "linkToEntityPages": true
+      },
+      "dateSettings": {
+        "format": "iso-8601",
+        "useLocalTimeZone": false,
+        "omitTime": false
+      }
+    },
+    {
+      "name": "result_count",
+      "reconSettings": {
+        "output": "entity-name",
+        "blankUnmatchedCells": false,
+        "linkToEntityPages": true
+      },
+      "dateSettings": {
+        "format": "iso-8601",
+        "useLocalTimeZone": false,
+        "omitTime": false
+      }
+    }
+  ]
+}
+
+```
 
 Here is our [search history](data/GIN/GIN-Library_search-history.tsv).
 
